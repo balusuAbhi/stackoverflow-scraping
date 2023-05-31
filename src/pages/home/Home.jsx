@@ -12,8 +12,8 @@ function Home({ stackData,getstackData }) {
         "https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&site=stackoverflow"
       )
       .then((data) => {
-        let overFlowData = data.data.items;
-        getstackData(overFlowData)
+        let stackData = data.data.items;
+        getstackData(stackData);
       });
   },[]);
   return (
