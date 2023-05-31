@@ -15,7 +15,7 @@ function Home({ stackData,getstackData }) {
         let receviedData = data.data.items;
         getstackData(receviedData)
       });
-  }, []);
+  },[]);
   return (
     <>
     {stackData && stackData.map((eachQuestion)=>{
