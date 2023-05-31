@@ -3,6 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { getstackData } from "../../redux/action";
 import "./Home.css";
+import Chart from "../../components/Chart";
 
 function Home({ stackData,getstackData }) {
   console.log(stackData);
@@ -13,17 +14,22 @@ function Home({ stackData,getstackData }) {
       )
       .then((data) => {
         let stackData = data.data.items;
+        //redux action
         getstackData(stackData);
-      });
+      })
+      .catch((err)=>{
+        console.log(err,"error")
+      })
   },[]);
   return (
     <>
-    {stackData && stackData.map((eachQuestion)=>{
+    {/* {stackData && stackData.map((eachQuestion)=>{
       return <div key={eachQuestion.question_id}>
         <h1>{eachQuestion.score}</h1>
       
       </div>
-    })}
+    })} */}
+    <Chart/>
     </>
   )
 }
