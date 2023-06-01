@@ -65,7 +65,7 @@ function Home({ stackData, getstackData, setFiltiredData, filteredData }) {
       <table class="table table-striped table-sm">
         <thead>
           <tr>
-            <th scope="col">TAG</th>
+            <th scope="col">TAGs</th>
             <th scope="col">COUNT and TOTAL QUESTIONS</th>
             <th scope="col">AVERAGE VIEWS</th>
           </tr>

@@ -13,14 +13,13 @@ const reducer = (state = initialState, action) => {
       };
 
     case SET_STACK_DATA:
-
-    const data = state.StackData.map((eachObj) => {
-      return {
-        tags: eachObj.tags,
-        view_count: eachObj.view_count,
-        title: eachObj.title,
-      };
-    });
+      const data = state.StackData.map((eachObj) => {
+        return {
+          tags: eachObj.tags,
+          view_count: eachObj.view_count,
+          title: eachObj.title,
+        };
+      });
 
       const tagData = {};
       data.forEach((item) => {
@@ -33,7 +32,7 @@ const reducer = (state = initialState, action) => {
               totalViews: 0,
             };
           }
-          
+
           tagData[tag].count++;
           tagData[tag].totalViews += view_count;
         });
@@ -54,6 +53,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         filteredData: sortedResult.slice(0, 5),
       };
+      
     default:
       return state;
   }
