@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.css';
 import { connect } from "react-redux";
 import { getstackData, setFiltiredData } from "../../redux/action";
 import "./Home.css";
@@ -59,20 +60,21 @@ function Home({ stackData, getstackData, setFiltiredData, filteredData }) {
   console.log(filteredData);
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>top 5 tags</h1>
-      <table>
+      <h1 style={{ textAlign: "center" }} className="h1">Top 5 Tags</h1>
+      <div className="container">
+      <table class="table table-striped table-sm">
         <thead>
           <tr>
-            <th>TAG</th>
-            <th>COUNT</th>
-            <th>AVERAGE VIEWS</th>
+            <th scope="col">TAG</th>
+            <th scope="col">COUNT and TOTAL QUESTIONS</th>
+            <th scope="col">AVERAGE VIEWS</th>
           </tr>
         </thead>
         <tbody>
           {filteredData &&
             filteredData.map((eachObj) => {
               return (
-                <tr key={eachObj.tag}>
+                <tr scope="row" key={eachObj.tag}>
                   <td>{eachObj.tag}</td>
                   <td>{eachObj.count}</td>
                   <td>{eachObj.averageViews}</td>
@@ -81,7 +83,8 @@ function Home({ stackData, getstackData, setFiltiredData, filteredData }) {
             })}
         </tbody>
       </table>
-      {barData ? <Chart chartData={barData} /> : <h1>loading graph...</h1>}
+      </div>
+      {barData ? <div className="d-flex justify-content-center"><Chart chartData={barData} /></div> : <h1>loading graph...</h1>}
     </>
   );
 }
