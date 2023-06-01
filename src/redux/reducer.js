@@ -1,5 +1,4 @@
 import { GET_STACK_DATA, SET_STACK_DATA } from "./action";
-import { data } from "../pages/home/data";
 
 const initialState = {
   StackData: [],
@@ -22,7 +21,7 @@ const reducer = (state = initialState, action) => {
         title: eachObj.title,
       };
     });
-    
+
       const tagData = {};
       data.forEach((item) => {
         const { tags, view_count } = item;
