@@ -10,24 +10,22 @@ import { data } from "./data";
 function Home({ stackData, getstackData, setFiltiredData, filteredData }) {
   const [barData, setBarData] = useState(null);
 
-  // useEffect(() => {
-  //   axios.get(
-  //       "https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&site=stackoverflowRun"
-  //     )
-  //     .then((data) => {
-  //       let stackData = data.data.items;
-  //       //redux action
-  //       getstackData(stackData);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err, "error");
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios.get("https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&site=stackoverflow")
+      .then((data) => {
+        let stackData = data.data.items;
+        //redux action
+        getstackData(stackData);
+      })
+      .catch((err) => {
+        console.log(err, "error");
+      });
+  }, []);
 
   //alternative
-  useEffect(() => {
-    getstackData(data);
-  }, []);
+  // useEffect(() => {
+  //   getstackData(data);
+  // }, []);
 
   useEffect(() => {
     setFiltiredData();
@@ -62,7 +60,7 @@ function Home({ stackData, getstackData, setFiltiredData, filteredData }) {
     <>
       <h1 style={{ textAlign: "center" }} className="h1">Top 5 Tags</h1>
       <div className="container">
-      <table class="table table-striped table-sm">
+      <table className="table table-striped table-sm">
         <thead>
           <tr>
             <th scope="col">TAGs</th>
