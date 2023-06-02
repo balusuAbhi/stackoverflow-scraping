@@ -22,7 +22,7 @@ function Home({ stackData, getstackData, setFiltiredData, filteredData }) {
       });
   }, []);
 
-  //alternative
+  //alternative if api does not work
   // useEffect(() => {
   //   getstackData(data);
   // }, []);
