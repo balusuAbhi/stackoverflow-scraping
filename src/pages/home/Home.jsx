@@ -59,7 +59,7 @@ function Home({ stackData, getstackData, setFiltiredData, filteredData }) {
   return (
     <>
       <h1 style={{ textAlign: "center" }} className="h1">Top 5 Tags</h1>
-      <div className="container">
+      {filteredData ? <div className="container">
       <table className="table table-striped table-sm">
         <thead>
           <tr>
@@ -81,7 +81,8 @@ function Home({ stackData, getstackData, setFiltiredData, filteredData }) {
             })}
         </tbody>
       </table>
-      </div>
+      </div> : <h4>Loading table...</h4>}
+      
       {barData ? <div className="d-flex justify-content-center"><Chart chartData={barData} /></div> : <h1>loading graph...</h1>}
     </>
   );
